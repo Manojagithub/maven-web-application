@@ -12,7 +12,7 @@ git credentialsId: 'fe7eb12e-cbb3-4b9a-b899-10e61de20b96', url: 'https://github.
 stage('Build'){
 steps{
 sh "mvn clean package"
- }
+}
 }
 stage('Docker Build') {
       steps {
@@ -20,10 +20,12 @@ stage('Docker Build') {
       }
     }
 stage('Docker Push') {
+steps{
  withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'DockerHubPwd')]) {
  sh " docker login -u manojadockerhub -p ${DockerHubPwd}"
 }
   sh " docker push manojadockerhub/maven-web-application:1 "
+}
 }
 }
 }
