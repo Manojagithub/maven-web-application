@@ -19,5 +19,11 @@ stage('Docker Build') {
         sh 'docker build -t manojadockerhub/maven-web-application:1 .'
       }
     }
+stage('Docker Push') {
+ withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'DockerHubPwd')]) {
+ sh " docker login -u manojadockerhub -p ${DockerHubPwd}"
+}
+  sh " docker push manojadockerhub/maven-web-application:1 "
+}
 }
 }
