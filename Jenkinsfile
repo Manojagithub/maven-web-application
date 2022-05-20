@@ -1,5 +1,6 @@
 pipeline{
 agent any
+def build_Number = BUILD_NUMBER
 tools{
 maven "maven3.8.5"
 }
@@ -16,7 +17,7 @@ sh "mvn clean package"
 }
 stage('Docker Build') {
       steps {
-        sh 'docker build -t manojadockerhub/maven-web-application:1 .'
+        sh 'docker build -t manojadockerhub/maven-web-application:${buid_Number} .'
       }
     }
 stage('Docker Push') {
@@ -24,7 +25,7 @@ steps{
  withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'DockerHubPwd')]) {
  sh " docker login -u manojadockerhub -p ${DockerHubPwd}"
 }
-  sh " docker push manojadockerhub/maven-web-application:1 "
+  sh " docker push manojadockerhub/maven-web-application:${build_Number} "
 }
 }
 }
