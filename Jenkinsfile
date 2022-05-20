@@ -1,4 +1,4 @@
-def build_Number = ${BUILD_NUMBER}
+def build_Number = BUILD_NUMBER
 pipeline{
 agent any
 tools{
