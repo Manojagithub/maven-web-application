@@ -19,7 +19,7 @@ stage('Docker Build') {
       steps {
         script {
           print("build_Number " + build_Number)
-          sh 'docker build -t manojadockerhub/maven-web-application:$build_Number .'
+          sh "docker build -t manojadockerhub/maven-web-application:$build_Number ."
         }
       }
     }
