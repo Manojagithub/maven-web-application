@@ -1,6 +1,6 @@
+def build_Number = ${BUILD_NUMBER}
 pipeline{
 agent any
-def build_Number = BUILD_NUMBER
 tools{
 maven "maven3.8.5"
 }
