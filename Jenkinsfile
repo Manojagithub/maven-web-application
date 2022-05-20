@@ -17,7 +17,7 @@ sh "mvn clean package"
 }
 stage('Docker Build') {
       steps {
-        sh 'docker build -t manojadockerhub/maven-web-application:${buid_Number} .'
+        sh 'docker build -t manojadockerhub/maven-web-application:${build_Number} .'
       }
     }
 stage('Docker Push') {
