@@ -24,7 +24,7 @@ stage('Docker Build') {
       steps {
         script {
           print("build_Number " + build_Number)
-          sh "docker build -t manojadockerhub/maven-web-application:$build_Number --build-arg JAVA_VER=${params.JAVA_VERSION}  --build-arg TOMCAT_MAJOR_VER=${params.TOMCAT_MAJOR_VERSION} --build-arg=TOMCAT_VER=${params.TOMCAT_VERSION} ."
+          sh "docker build -t manojadockerhub/maven-web-application:${params.TOMCAT_VERSION}-$build_Number --build-arg JAVA_VER=${params.JAVA_VERSION}  --build-arg TOMCAT_MAJOR_VER=${params.TOMCAT_MAJOR_VERSION} --build-arg=TOMCAT_VER=${params.TOMCAT_VERSION} ."
         }
       }
     }
