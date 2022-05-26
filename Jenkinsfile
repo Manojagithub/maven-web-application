@@ -5,9 +5,9 @@ tools{
 maven "maven3.8.5"
 }
 parameters {
-  string(name: "JAVA_VERSION", default: "1.8.0", description: "Java Version")
-  string(name: "TOMCAT_MAJOR_VERSION", default: "8", description: "Tomcat Major Version")
-  string(name: "TOMCAT_VERSION", default: "8.5.79", description: "Tomcat Version")
+  string(name: "JAVA_VERSION", defaultValue: "1.8.0", description: "Java Version")
+  string(name: "TOMCAT_MAJOR_VERSION", defaultValue: "8", description: "Tomcat Major Version")
+  string(name: "TOMCAT_VERSION", defaultValue: "8.5.79", description: "Tomcat Version")
 }
 stages{
 stage('CheckoutCode'){
